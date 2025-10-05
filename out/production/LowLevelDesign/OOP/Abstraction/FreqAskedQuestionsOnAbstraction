@@ -1,0 +1,299 @@
+Excellent question 👏 — abstraction is one of the **most frequently asked OOP topics** in Java interviews.
+
+Below are the **top abstraction-related interview questions**, grouped by **difficulty level**, with concise and clear answers (ideal for interviews).
+
+---
+
+# 🎯 **Top Java Interview Questions on Abstraction**
+
+---
+
+## 🟢 **Basic-Level Questions**
+
+### 1️⃣ What is abstraction in Java?
+
+**Answer:**
+Abstraction is the process of hiding implementation details and showing only essential information.
+It allows programmers to focus on *what an object does*, not *how it does it*.
+In Java, abstraction is achieved through **abstract classes** and **interfaces**.
+
+---
+
+### 2️⃣ How do you achieve abstraction in Java?
+
+**Answer:**
+You can achieve abstraction using:
+
+* **Abstract classes** (`abstract` keyword)
+* **Interfaces**
+
+---
+
+### 3️⃣ What is an abstract class?
+
+**Answer:**
+An abstract class is a class declared with the `abstract` keyword that **cannot be instantiated**.
+It can contain:
+
+* Abstract methods (without implementation)
+* Concrete methods (with implementation)
+* Instance variables
+* Constructors
+
+---
+
+### 4️⃣ Can an abstract class have a constructor in Java?
+
+**Answer:**
+✅ Yes.
+Abstract classes can have constructors.
+They are used to **initialize common fields** when subclasses are created.
+
+---
+
+### 5️⃣ Can we create an object of an abstract class?
+
+**Answer:**
+❌ No.
+You **cannot instantiate** an abstract class directly.
+However, you can create **references** of an abstract type pointing to subclass objects.
+
+---
+
+### 6️⃣ What is an interface?
+
+**Answer:**
+An interface is a **contract** that defines abstract methods (and optionally default/static methods).
+Classes implement interfaces to provide specific behavior.
+
+---
+
+### 7️⃣ Can interfaces have constructors?
+
+**Answer:**
+❌ No.
+Interfaces cannot have constructors because they **cannot be instantiated** and **don’t maintain state**.
+
+---
+
+## 🟡 **Intermediate-Level Questions**
+
+### 8️⃣ Difference between abstract class and interface?
+
+| Feature      | Abstract Class                         | Interface                         |
+| ------------ | -------------------------------------- | --------------------------------- |
+| Methods      | Abstract + Concrete                    | Abstract + Default + Static       |
+| Variables    | Instance + Static                      | Only `public static final`        |
+| Constructors | Allowed                                | Not allowed                       |
+| Inheritance  | Single                                 | Multiple                          |
+| Purpose      | Shared base and partial implementation | Contract or capability definition |
+
+---
+
+### 9️⃣ Can an abstract class implement an interface?
+
+**Answer:**
+✅ Yes.
+An abstract class can implement an interface, but it doesn’t have to provide implementations for all interface methods.
+Subclasses must implement the remaining methods.
+
+---
+
+### 🔟 Can an interface extend another interface?
+
+**Answer:**
+✅ Yes.
+Interfaces can **extend** other interfaces using the `extends` keyword.
+
+```java
+interface A { void methodA(); }
+interface B extends A { void methodB(); }
+```
+
+---
+
+### 1️⃣1️⃣ Can a class be both abstract and final?
+
+**Answer:**
+❌ No.
+
+* `abstract` → class must be extended.
+* `final` → class cannot be extended.
+  They contradict each other.
+
+---
+
+### 1️⃣2️⃣ Can abstract classes have static methods?
+
+**Answer:**
+✅ Yes.
+Static methods belong to the class, not to instances.
+So, abstract classes can define and use static methods.
+
+---
+
+### 1️⃣3️⃣ What happens if a subclass does not implement all abstract methods?
+
+**Answer:**
+The subclass must itself be declared **abstract**; otherwise, it causes a **compilation error**.
+
+---
+
+### 1️⃣4️⃣ What percentage of abstraction do abstract classes and interfaces provide?
+
+**Answer:**
+
+* **Abstract class:** Partial abstraction (0–100%)
+* **Interface:** Full abstraction (100%)
+
+---
+
+## 🔴 **Advanced-Level Questions**
+
+### 1️⃣5️⃣ Can an interface have a main method?
+
+**Answer:**
+✅ Yes.
+Since Java 8, interfaces can have static methods, including `main()`.
+
+```java
+interface Test {
+    static void main(String[] args) {
+        System.out.println("Interface main method");
+    }
+}
+```
+
+---
+
+### 1️⃣6️⃣ What are default and static methods in interfaces?
+
+**Answer:**
+
+* **Default methods** → Have a body, allow backward compatibility.
+* **Static methods** → Belong to the interface, not implementing classes.
+
+Example:
+
+```java
+interface MyInterface {
+    default void display() { System.out.println("Default method"); }
+    static void show() { System.out.println("Static method"); }
+}
+```
+
+---
+
+### 1️⃣7️⃣ Why use abstraction?
+
+**Answer:**
+
+* Hides implementation details
+* Reduces complexity
+* Promotes code reusability
+* Enhances scalability and maintainability
+
+---
+
+### 1️⃣8️⃣ Can we declare an abstract method as `private` or `static`?
+
+**Answer:**
+❌ No.
+
+* `private` methods cannot be overridden.
+* `static` methods belong to the class, not instances.
+  Both contradict abstraction principles.
+
+---
+
+### 1️⃣9️⃣ Can abstract classes have final methods?
+
+**Answer:**
+✅ Yes.
+A final method cannot be overridden, but an abstract class can still define it to enforce consistent behavior in subclasses.
+
+---
+
+### 2️⃣0️⃣ What is the difference between abstraction and encapsulation?
+
+| Concept           | Description                                            | Example                               |
+| ----------------- | ------------------------------------------------------ | ------------------------------------- |
+| **Abstraction**   | Hides *implementation details*                         | Using `abstract` class or `interface` |
+| **Encapsulation** | Hides *data* using private variables + getters/setters | Private fields with public methods    |
+
+They work together — abstraction hides complexity, encapsulation hides data.
+
+---
+
+### 2️⃣1️⃣ Can we make a constructor abstract in Java?
+
+**Answer:**
+❌ No.
+Constructors are not inherited or overridden, so marking them `abstract` has no meaning.
+
+---
+
+### 2️⃣2️⃣ Why can’t we instantiate an abstract class?
+
+**Answer:**
+Because it may contain **abstract methods without implementation**, so Java cannot guarantee full behavior.
+
+---
+
+### 2️⃣3️⃣ What happens if an abstract class has no abstract methods?
+
+**Answer:**
+✅ Valid.
+Such a class cannot be instantiated but can be used as a **base class** to prevent direct object creation.
+
+---
+
+### 2️⃣4️⃣ Can interfaces have instance variables?
+
+**Answer:**
+❌ No.
+All variables in an interface are implicitly:
+
+```java
+public static final
+```
+
+i.e., constants only.
+
+---
+
+### 2️⃣5️⃣ Can an interface extend a class?
+
+**Answer:**
+❌ No.
+Interfaces can only **extend other interfaces**, not classes.
+
+---
+
+## 💡 **Bonus Conceptual Question**
+
+### What happens behind the scenes when a class implements multiple interfaces?
+
+Java uses the **“multiple inheritance of type”** — meaning:
+
+* The class inherits **method signatures** (not implementation).
+* It avoids the “diamond problem” because actual implementation is provided by the class itself.
+
+---
+
+## 🧠 **Quick Summary Table**
+
+| Topic             | Abstract Class      | Interface                   |
+| ----------------- | ------------------- | --------------------------- |
+| Instantiation     | ❌ No                | ❌ No                        |
+| Methods           | Abstract + Concrete | Abstract + Default + Static |
+| Variables         | Instance + Static   | Only constants              |
+| Constructors      | ✅ Yes               | ❌ No                        |
+| Inheritance       | Single              | Multiple                    |
+| Use Case          | Common base         | Common contract             |
+| Abstraction Level | Partial (0–100%)    | Full (100%)                 |
+
+---
+
+Would you like me to create a **PDF “Abstraction Interview Q&A Sheet”** (formatted for printing or quick revision)?
+It can include **all 25 questions** with short answers on one page.
