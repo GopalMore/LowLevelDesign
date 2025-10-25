@@ -1,4 +1,4 @@
-package OOP.OppsMisc;
+package OOP.OppsMisc.ObjectClonning;
 
 class student implements Cloneable{
     int rollNo ;
