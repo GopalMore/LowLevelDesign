@@ -1,9 +1,9 @@
 package OOP.OppsMisc.GenericsAndWildCards;
 
- class MultipleParams <T,U>{
-    T elemetnsT;
-    U elemetnsU;
-    MultipleParams(T elemetnsT,U elemetnsU){
+ class MultipleParams <K,V>{
+    K elemetnsT;
+    V elemetnsU;
+    MultipleParams(K elemetnsT,V elemetnsU){
         this.elemetnsT = elemetnsT;
         this.elemetnsU = elemetnsU;
     }
@@ -14,7 +14,7 @@ package OOP.OppsMisc.GenericsAndWildCards;
 
      public static void main(String[] args) {
          MultipleParams<Integer,String> multipleParams = new MultipleParams<>(10,"STRING");
-         System.out.println(multipleParams.elemetnsU);
+           System.out.println(multipleParams.elemetnsU);
          System.out.println(multipleParams.elemetnsT);
          multipleParams.getObject();
 
